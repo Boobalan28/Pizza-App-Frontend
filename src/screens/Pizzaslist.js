@@ -13,8 +13,9 @@ export default function Pizzaslist() {
     const dispatch = useDispatch()
 
     const [pizzas,setPizzaList] = useState([])
+    //eslint-disable-next-line
     useEffect(async () => {
-        const response = await axios.get('http://localhost:8000/Pizza/getpizza');
+        const response = await axios.get('https://pizza-app-apis.herokuapp.com/Pizza/getpizza');
         setPizzaList(response.data);
     },[])
 

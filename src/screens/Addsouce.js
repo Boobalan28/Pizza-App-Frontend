@@ -1,10 +1,6 @@
 import axios from 'axios';
-import React, { useState, useEffect } from "react";
-import { useDispatch , useSelector } from 'react-redux'
-import Error from "../Components/Error";
-import Loading from "../Components/Loading";
-import Success from '../Components/Success'; 
-
+import React, { useState} from "react";
+import { useDispatch} from 'react-redux';
 
 export default function Addsouce() {
   const [name, setname] = useState("");
@@ -16,7 +12,7 @@ export default function Addsouce() {
   const dispatch = useDispatch()
 
   const addSouce = async (souce) => {
-      var response = await axios.post(`http://localhost:8000/Souce/${souce}`, {souce})
+      var response = await axios.post(`https://pizza-app-apis.herokuapp.com/Souce/${souce}`, {souce})
       console.log(response);
       window.location.reload()
   }

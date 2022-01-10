@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useDispatch , useSelector } from 'react-redux'
 import { addPizza } from "../Actions/PizzaActions";
 import Error from "../Components/Error";
@@ -7,9 +7,9 @@ import Success from '../Components/Success';
 
 export default function Addpizza() {
   const [name, setname] = useState("");
-  const [small, setsmall] = useState("");
-  const [medium, setmedium] = useState("");
-  const [large, setlarge] = useState("");
+  const [small] = useState("");
+  const [medium] = useState("");
+  const [large] = useState("");
   const [smallprice, setsmallprice] = useState("");
   const [mediumprice, setmediumprice] = useState("");
   const [largeprice, setlargeprice] = useState("");

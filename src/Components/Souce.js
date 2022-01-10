@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {Button,Modal} from 'react-bootstrap';
 import { addtoCart } from '../Actions/SouceCartActions';
-import {useDispatch,useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { Link } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';

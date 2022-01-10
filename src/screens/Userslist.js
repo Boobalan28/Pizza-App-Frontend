@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Error from "../Components/Error";
 import Loading from "../Components/Loading";
@@ -15,7 +15,8 @@ export default function Userslist() {
 
         dispatch(getAllUsers())
         
-    }, [])
+        //eslint-disable-next-line
+    },  [])
 
     return (
         <div>

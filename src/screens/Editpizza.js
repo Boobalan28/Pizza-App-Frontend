@@ -4,7 +4,6 @@ import { editPizza, getPizzaById } from "../Actions/PizzaActions";
 import Error from "../Components/Error";
 import Loading from "../Components/Loading";
 import Success from "../Components/Success";
-import axios from 'axios';
 
 export default function Editpizza({ match }) {
   const dispatch = useDispatch();
@@ -28,7 +27,7 @@ export default function Editpizza({ match }) {
 
     if(pizza)
     {
-        if(pizza._id == match.params.pizzaid)
+        if(pizza._id === match.params.pizzaid)
         {
             setname(pizza.name)
             setdescription(pizza.description)
@@ -46,9 +45,7 @@ export default function Editpizza({ match }) {
     else{
         dispatch(getPizzaById(match.params.pizzaid));
     }
-
-
-
+//eslint-disable-next-line
   }, [pizza , dispatch]);
 
   function formHandler(e) {

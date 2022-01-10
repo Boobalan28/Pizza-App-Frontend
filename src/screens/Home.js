@@ -15,12 +15,15 @@ export default function Home(){
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getAllPizzas(pizzas))
+        //eslint-disable-next-line
     },[]);
 
     //  get pizza data to home screen //
+    //eslint-disable-next-line
     const [pizzas,setPizzaList] = useState([])
+    //eslint-disable-next-line
     useEffect(async () => {
-        const response = await axios.get('http://localhost:8000/Pizza/getpizza');
+        const response = await axios.get('https://pizza-app-apis.herokuapp.com/Pizza/getpizza');
         setPizzaList(response.data);
     },[])
 
@@ -41,7 +44,7 @@ export default function Home(){
         (<>
         <div className="row">
             {pizzas.map(pizza=>{
-                return <div className="col-md-4" keys={Pizza._id}>
+                return <div className="col-md-4" key={Pizza._id}>
                     <div>
                         <Pizza pizzas={pizza}/>  
                     </div>
@@ -59,8 +62,9 @@ export default function Home(){
 
     //  get souce data to home page //
     const [souces,setSouceList] = useState([])
+    //eslint-disable-next-line
     useEffect(async () => {
-        const response = await axios.get('http://localhost:8000/Souce/getsouce');
+        const response = await axios.get('https://pizza-app-apis.herokuapp.com/Souce/getsouce');
         setSouceList(response.data);
     },[])
 

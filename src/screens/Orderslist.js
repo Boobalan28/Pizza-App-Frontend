@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deliverOrder, getAllOrders } from "../Actions/OrderAction";
 import Error from "../Components/Error";
@@ -13,6 +13,7 @@ export default function Orderslist() {
 
   useEffect(() => {
     dispatch(getAllOrders());
+    //eslint-disable-next-line
   }, []);
 
   return (

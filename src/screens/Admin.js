@@ -1,5 +1,5 @@
 import React, { useEffect }  from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -16,12 +16,12 @@ export default function Admin() {
 
   const userstate = useSelector((state) => state.loginUserReducer);
   const { currentUser } = userstate;
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!currentUser.isAdmin) {
       window.location.href = "/";
     }
+    //eslint-disable-next-line
   }, []);
 
     return (

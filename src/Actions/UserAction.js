@@ -5,7 +5,7 @@ export const registerUser = (users)=>async dispatch=>{
     dispatch({type:'USER_REGISTER_REQUEST'})
 
     try {
-        const response = await axios.post('http://localhost:8000/Users/register', users)
+        const response = await axios.post('https://pizza-app-apis.herokuapp.com/Users/register', users)
         console.log(response)
         dispatch({type:'USER_REGISTER_SUCCESS'})
     } catch (error) {
@@ -18,7 +18,7 @@ export const loginUser=(user)=>async dispatch=>{
     dispatch({type:'USER_LOGIN_REQUEST'})
 
     try {
-        const response = await axios.post('http://localhost:8000/Users/login' , user)
+        const response = await axios.post('https://pizza-app-apis.herokuapp.com/Users/login' , user)
         console.log(response);
         dispatch({type:'USER_LOGIN_SUCCESS' , payload: response.data})
         
@@ -44,7 +44,7 @@ export const getAllUsers=()=>async dispatch=>{
     dispatch({type:'GET_USERS_REQUEST'})
 
     try {
-        const response = await axios.get('http://localhost:8000/Users/getusers')
+        const response = await axios.get('https://pizza-app-apis.herokuapp.com/Users/getusers')
         console.log(response);
         dispatch({type:'GET_USERS_SUCCESS' , payload : response.data})
        
@@ -57,7 +57,7 @@ export const getAllUsers=()=>async dispatch=>{
 export const deleteUser=(userId)=>async dispatch=>{
 
     try {
-        await axios.delete('http://localhost:8000/Users/deleteusers/:{userId}', {userId})
+        await axios.delete('https://pizza-app-apis.herokuapp.com/Users/deleteusers/:{userId}', {userId})
         alert('User deleted successfully')
         window.location.reload()
     } catch (error) {

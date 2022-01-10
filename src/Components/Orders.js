@@ -1,9 +1,8 @@
-import React , {useState, useEffect} from 'react';
+import React , {useEffect} from 'react';
 import {useDispatch , useSelector} from 'react-redux';
 import {getUserOrders} from "../Actions/OrderAction";
 import Error from "../Components/Error";
 import Loading from "../Components/Loading";
-import Success from '../Components/Success';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -17,7 +16,7 @@ export default function Orders() {
     useEffect(() => {
 
         dispatch(getUserOrders())
-      
+      //eslint-disable-next-line
     }, [])
 
     return (

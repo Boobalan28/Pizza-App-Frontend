@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import './Pizza.css';
 import {Button,Modal} from 'react-bootstrap';
-import {useDispatch,useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { addTOCart } from '../Actions/CartActions';
 import { Link } from "react-router-dom";
 import AOS from 'aos';

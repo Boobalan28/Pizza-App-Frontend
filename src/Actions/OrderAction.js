@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const placeOrder=(token , subtotals)=>async (dispatch , getState)=>{
   
       dispatch({type:'PLACE_ORDER_REQUEST'})
@@ -8,7 +9,7 @@ export const placeOrder=(token , subtotals)=>async (dispatch , getState)=>{
       
       try {
 
-         const response = await axios.post('http://localhost:8000/Orders/placeorders',{token , subtotals , currentUser , cartItems , cartItem})
+         const response = await axios.post('https://pizza-app-apis.herokuapp.com/Orders/placeorders',{token , subtotals , currentUser , cartItems , cartItem})
          dispatch({type:'PLACE_ORDER_SUCCESS'})
          console.log(response);
           
@@ -25,7 +26,7 @@ export const getUserOrders=()=>async (dispatch,getState)=>{
   dispatch({type:'GET_USER_ORDERS_REQUEST'})
   
   try {
-      const response = await axios.post('http://localhost:8000/Orders/getuserorders' , {userid : currentUser._id})
+      const response = await axios.post('https://pizza-app-apis.herokuapp.com/Orders/getuserorders' , {userid : currentUser._id})
 
       
       console.log(response);
@@ -43,7 +44,7 @@ export const getAllOrders=()=>async (dispatch,getState)=>{
   dispatch({type:'GET_ALLORDERS_REQUEST'})
   
   try {
-      const response = await axios.get('http://localhost:8000/Orders/getallorders')
+      const response = await axios.get('https://pizza-app-apis.herokuapp.com/Orders/getallorders',{currentUser})
 
       
       console.log(response);
@@ -57,10 +58,10 @@ export const getAllOrders=()=>async (dispatch,getState)=>{
 
 export const deliverOrder=(orderid)=>async dispatch=>{
     try {
-      const response = await axios.post('http://localhost:8000/Orders/deliverorder' , {orderid})
+      const response = await axios.post('https://pizza-app-apis.herokuapp.com/Orders/deliverorder' , {orderid})
       console.log(response);
       alert('Order Delivered')
-      const orders = await axios.get('http://localhost:8000/Orders/getallorders')
+      const orders = await axios.get('https://pizza-app-apis.herokuapp.com/Orders/getallorders')
       dispatch({type:'GET_ALLORDERS_SUCCESS' , payload:orders.data})
     } catch (error) {
       console.log(error);

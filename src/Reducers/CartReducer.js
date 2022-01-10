@@ -22,7 +22,6 @@ export const cartReducer = (state= defaultstate, action)=>{
             cartItems:[...state.cartItems , action.payload]
         }
       }
-        break;
         case 'ADD_TO_SOUCECART': 
         const soucealreadyExists = state.cartItem.find(items=> items._id === action.payload._id)
         if (soucealreadyExists)
@@ -37,21 +36,18 @@ export const cartReducer = (state= defaultstate, action)=>{
            cartItem:[...state.cartItem , action.payload]
        } 
       } 
-        break;
         case 'DELETE_FROM_CART':{
           return{
             ...state,
             cartItems: state.cartItems.filter(item=> item._id !== action.payload._id)
           }
         }
-        break;
         case 'DELETE_FROM_SOUCECART':{
           return{
             ...state,
             cartItem: state.cartItem.filter(items=> items._id !== action.payload._id)
           }
         }
-        break;
       default: return state
     }
 };
